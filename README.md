@@ -9,3 +9,8 @@ This git repository contains examples created in the class CSCI 356
 Data Structures in Python.
 
 
+## This is a new section
+
+I just changed the README for CSCI 356.
+
+
