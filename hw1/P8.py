@@ -264,5 +264,4 @@ class Fraction:  # from Listing 1
         elif not isinstance(rhs, Fraction):
             return NotImplemented
 
-        self = self + rhs
-        return self
+        return self + rhs
