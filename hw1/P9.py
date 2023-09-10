@@ -1,8 +1,8 @@
 """
 9. Research the __repr__ method. How does it differ from __str__? When is it used? Implement __repr__.
 
-__repr__ converts an object to a string.   Its most prominent use is what you see when an interactive
-Python shell and you enter the name of a variable by itself at the shell prompt
+__repr__ converts an object to a string.   Its most prominent use is what you see when in an interactive
+Python shell, and you enter the name of a variable by itself at the shell prompt
 and hit return.  For example,
 
      >>> f = Fraction(1, 2)
