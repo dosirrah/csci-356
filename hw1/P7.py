@@ -11,11 +11,11 @@ does not know how to handle the type of the right-hand side.  For eample, consid
 Python calls the addition operation for the integer 5 and passes the operator
 Fraction(1,2).  The addition operator for integers does not know what to do
 with the Fraction(1,2), so the addition operator for integers returns
-NotImplemented.  Python then looks for a __raddr__ method on the rhs,
-i.e., the Fraction.  However, prior to p7, the Fraction has no __raddr__
+NotImplemented.  Python then looks for a __radd__ method on the rhs,
+i.e., the Fraction.  However, prior to p7, the Fraction has no __radd__
 method so it Python raises a TypeError.
 
-NOTE: The problem is not clear as to what semantics are expected of __raddr__.
+NOTE: The problem is not clear as to what semantics are expected of __radd__.
 What types should it handle?  We accept any reasonable attempt at p7 as correct.
 
 """
