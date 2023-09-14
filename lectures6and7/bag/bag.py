@@ -5,11 +5,19 @@ class Bag:
     A Bag is similar to a set, but it can contain more than one of the same item.
     For example, a bag can contain
 
+        >>> s = {5,4,9}
+        >>> s.add(5)
+        >>> s
+        {9, 4, 5}
 
+    A Bag is like a mathematical set except that it can hold more than 1 of any given value.
 
+        >>> b = Bag({5,4,9})
+        >>> s.add(5)
+        >>> s
+        Bag({9, 4, 5, 5})
 
-
-    As with a set, a bag should support fast bag membership, i.e.,
+    As with a set, a bag should support fast add, remove and bag membership, i.e.,
     contains.
 
     """
@@ -96,11 +104,11 @@ class Bag:
         :return: None
         :raises KeyError: if item to be removed is not in the bag.
         """
-            # removes all that match.
-            if item not in self._contents:
-                    raise KeyError
+        # removes all that match.
+        if item not in self._contents:
+                raise KeyError
 
-            del self._contents[item]
+        del self._contents[item]
 
     def discardall(self, item) -> None:
         """
@@ -138,6 +146,26 @@ if __name__ == "__main__":
     import time
     import random
 
+    def test():
+        import matplotlib.pyplot as plt
+        import time
+        N = 1000
+        add_run_times = []
+        for n in range(1, N, 10):
+            b = Bag()
+            start_time = time.time()  # time in seconds
+            for _ in range(n):
+                b.add(random.randint(1, 10))
+            end_time = time.time()
+            add_run_times.append((end_time - start_time)/n)
+
+        x = range(1, N, 10)
+        plt.scatter(x, add_run_times, color="red")
+        plt.title('Execution times')
+        plt.xlabel('N')
+        plt.ylabel('t (seconds)')
+        plt.show()
+
     def main():
         # add some examples here.
         b = Bag([5,6,6])
@@ -170,4 +198,5 @@ if __name__ == "__main__":
 
         plt.show()
 
-    main()
+    #main()
+    test()
