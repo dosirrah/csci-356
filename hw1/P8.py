@@ -40,6 +40,12 @@ def gcd(m: int, n: int) -> int:
     if n == 0:
         return m
 
+    if m < 0:
+        m = -m
+
+    if n < 0:
+        n = -n
+
     while m % n != 0:
         oldm = m
         oldn = n

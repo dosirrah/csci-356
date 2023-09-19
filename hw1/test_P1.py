@@ -26,10 +26,10 @@ class TestP1(unittest.TestCase):
         self.assertEqual(f.getDen(), 2)
 
     def test_gcd(self):
-        self.assertEqual(gcd(5, 10), 5)
-        self.assertEqual(gcd(60,90), 30)
+        self.assertEqual(5, gcd(5, 10))
+        self.assertEqual(30, gcd(60,90))
 
-        self.assertEqual(gcd(0, 5), 5)
+        self.assertEqual(5, gcd(0, 5))
 
         # # The implementation of gcd() in the book doesn't handle the next
         # # case.  Obviously the authors didn't do enough unit testing.
@@ -37,7 +37,12 @@ class TestP1(unittest.TestCase):
         # # provides a more meaningful error when both arguments are 0.
         # # I commented the next line, because I'm not going to penalize students
         # # for a limitation (error?) in the book.
-        self.assertEqual(gcd(5, 0), 5)
+        self.assertEqual(5, gcd(5, 0))
+
+        self.assertEqual(1, gcd(-5, 1))
+
+        # The implementation of gcd() in the book also fails on the next one.  It returns -1.
+        self.assertEqual(1, gcd(5, -1))
 
     def test_add(self):
         f1 = Fraction(0, 1)
