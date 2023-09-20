@@ -61,7 +61,11 @@ of *Problem Solving with Algorithms and Data Structures using Python*.
 **Problem 5**: (2 points) The Bag class from lectures 6 and 7 can be
 found in the class repository at
 
-    https://git.cs.olemiss.edu/harrison/csci-356/lectures6and7/bag/bag.py.
+    https://git.cs.olemiss.edu/harrison/csci-356
+
+in
+
+    lectures6and7/bag/bag.py
     
 Add an iterator class to Bag.  The iterator class must pass the unit
 tests committed in the repository in the directory
