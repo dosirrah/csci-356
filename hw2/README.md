@@ -70,8 +70,10 @@ in
 Add an iterator class to Bag.  The iterator class must pass the unit
 tests committed in the repository in the directory
 `hw2/bag/test_bag.py`.  You will receive *partial credit if you do not
-write unit tests for you iterator class, or if the code lacks comments
-or type hints.*
+write unit tests for your iterator class, or if the code lacks comments
+or type hints.*  Write to test more conditions than the tests given
+in `test_bag.py`.  The tests should cover edge conditions like the 
+iterator should work as expected on an empty list.
 
 **Problem 6**: （2 points) Write a program that verifies that the list
 index operator is O(1).  The program must plot the run time of the
