@@ -8,6 +8,10 @@ Due:      9/21/2023 at 11:59 PM
 WARNING.  Students may not work together.  Students may discuss the
 problems with each other, but do not give any other student your solutions.
 
+Aside: This file is written using markdown.  markdown renders reasonably
+well inside pycharm.  If you use pandoc, markdown can be converted to a 
+pdf file.
+
 Install matplotlib into your python environment.  In the slides for lecture 7
 I showed how to do this for PyCharm.  The slides are available in blackboard.
 
