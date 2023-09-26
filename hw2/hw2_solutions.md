@@ -119,9 +119,11 @@ The additional tests just test a couple edge cases.
 index operator is O(1).  The program must plot the run time of the
 list index operator as a function of n using matplotlib.
 
+# I'll write something to do this.
+
 **Answer 6**
 
-# I'll write somehting to do this.
+See p7.py
 
 
 **Problem 7**: (2 points) Write a program that compares the performance of the
@@ -134,4 +136,4 @@ operator, be sure to delete items at random locations from the list.
 
 **Answer 7**
 
-# I'll write something to do this.
+See p8.py
