@@ -109,6 +109,11 @@ iterator should work as expected on an empty list.
 
 See hw2/bag/bag.py
 
+These should pass the tests in hw2/test_bag.py as well as the
+additional tests in hw2/test_bag_extended.py.
+
+The additional tests just test a couple edge cases.
+
 
 **Problem 6**: (2 points) Write a program that verifies that the list
 index operator is O(1).  The program must plot the run time of the
