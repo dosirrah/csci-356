@@ -5,7 +5,7 @@
 
 import unittest
 from collections import defaultdict
-from bag import Bag
+from hw2.bag import Bag
 
 class TestBag(unittest.TestCase):
 
