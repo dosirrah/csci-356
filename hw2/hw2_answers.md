@@ -22,7 +22,7 @@ will not try to merge changes to such files.  Although I put the pdf in
 git, I only place non-code into git repositories sparingly.
 -->
 
-**Problem 1** Give the Big-O performanc of the following code fragment:
+**Problem 1** Give the Big-O performance of the following code fragment:
 
 ```
     for i in range(n):      # (1)  n * (steps (2) and (3))
@@ -30,21 +30,86 @@ git, I only place non-code into git repositories sparingly.
             k = 2 + 2       # (3)  O(1)
 ```
 
+Let $T(n)$ denote the execution time measured in steps of the
+code fragment above.
+
+Let $T_3$ denote the time to execute step (3).
+Let $T_2$ denote the time to execute steps (2) and (3).
+Let $T_1$ denote the time to execute steps (1), (2), and (3).
+Since $T_1$ contains the time to execute all of the steps, $T = T_1$.
+
+$T_3$ takes at least two steps.  The addition and the assignment.  In
+machine langauge, this may take additional steps to read and write the
+result from memory.  We cannot know exactly how many machine language
+instructions this code may compile down to, because that will depend
+on the specifics of the CPU architecture.  We can however know that
+the number of instructions will be bounded by some constant.  It will
+never take 1000 instructions to implement step (3) on any existing
+processor.  As such, we can say there exists a constant $C_3$ number
+of steps for which
+
 \begin{equation}
-  n \cdot n \cdot O(1) = O(n^2)
+  T_3(n) \leq C_3
 \end{equation}
+
+The definition of big O states
+
+\begin{equation}
+  f(n) = O(g(n)) 
+\end{equation}
+
+if and only if there exists some $C$ and $n_0$ such that
+$f(n) \leq C\cdot g(n)$ for all $n > n_0$.
+
+\begin{equation}
+ T_3(n) = O(1)
+\end{equation}
+
+because $T_3(n) \leq C_3 \cdot 1$ regardless of $n$, because
+we choose to set $C=C_3$.
+
+
+Because step (2) repeats step (3) $n$ times,
+
+\begin{equation}
+ T_2(n) = n \cdot T_3(n)
+\end{equation}
+
+Because step (1) repeats step (2) and (3) $n$ times,
+
+\begin{equation}
+T(n) = T_1(n) = n \cdot T_2(n) = n^2 T_3(n) = C \cdot n^2 \label{eq:p1_eq1}
+\end{equation}
+
+From the definition of big-O,
+
+\begin{equation}
+  \boxed{T(n) = O(n^2)}
+\end{equation}
+
+NOTE: We can also say $T(n) = O(n^3)$ and $T(n) = O(2^n)$, because
+big-O notation establishes an upper bound.  However, when we ask for
+the big-O of a particular code fragment, we want the tightest
+upper bound.  You will not get full credit if you said that the
+time complexity of the code fragment is $O(n^3)$.
 
 **Problem 2** Give the Big-O performance of the following code fragment:
 
 ```
-    for i in range(n):    # (1)  n * (step 1(2))
+    for i in range(n):    # (1)  n * (step (2))
         k = 2 + 2         # (2)  O(1)
 ```
 
 The time complexity of the code above becomes
 
 \begin{equation}
-  n \cdot O(n) = O(n)
+  T(n) = n \cdot O(1)
+\end{equation}
+
+so
+
+\begin{equation}
+  \boxed{T(n) = O(n)}
 \end{equation}
 
 **Problem 3** Give the Big-O performance of the following code fragment:
@@ -56,20 +121,61 @@ The time complexity of the code above becomes
         i = i // 2   # (4)  O(1)
 ```
 
+Let $T(n)$ denote th enumber of steps to execute the code fragement
+above.
+
 Because step (4) divides i by 2 on each iteration, this causes
-the i reach 0 in $log_2(n)$ divisions.  Thus the time complexity
+the i reach 0 in $log_2(n)+1$ divisions.  Thus the time complexity
 of the code above in big-O notation becomes
 
 \begin{equation}
-   O(1) + log_2(n) \cdot (O(1) + O(1))    \label{eq:p2_eq1}
+   T(n) = O(1) + (log_2(n)+1) \cdot (O(1) + O(1))    \label{eq:p2_eq1}
 \end{equation}
 
 Because $log_2(n)$ grows with $n$ while the $O(1)$ terms do not, 
 the $log_2(n)$ becomes the dominant term as $n$ grows.  Thus
-Forumula~\ref{eq:p2_eq1} becomes
+Forumula \ref{eq:p2_eq1} becomes
 
 \begin{equation}
-  O(log_2(n))
+  T(n) = O(log_2(n))
+\end{equation}
+
+It so happens that we can convert between bases by multiplying
+by a constant.  Remember back to your math, the log base change rule states
+
+\begin{equation}
+  log_b(a) = \frac{log_c(a)}{log_c(b)}  \label{eq:p2_eq2}
+\end{equation}
+
+As such,
+
+\begin{equation}
+ log_k(n) = \frac{log_2(n)}{log_2(k)}
+\end{equation}
+
+Note that $\log_2(k)$ is a constant.  We can thus define a constant
+$C=\frac{1}{log_2(k)}$ such that Equation \ref{eq:p2_eq2} becomes
+
+\begin{equation}
+ log_k(n) = C log_2(n)
+\end{equation}
+
+This means
+
+\begin{equation}
+  O(log_2(n)) = O(log_3(n)) = O(log_4(n)) = ...
+\end{equation}
+
+Since I can do this for any $k$, we often drop the base and state
+
+\begin{equation}
+  O(log_2(n)) = O(log(n))
+\end{equation}
+
+so
+
+\begin{equation}
+  \boxed{T(n) = O(log(n))}
 \end{equation}
 
 **Problem 4** Give the Big-O performance of the follwoing code fragment:
