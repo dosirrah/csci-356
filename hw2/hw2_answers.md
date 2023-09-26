@@ -34,7 +34,7 @@ git, I only place non-code into git repositories sparingly.
   n \cdot n \cdot O(1) = O(n^2)
 \end{equation}
 
-** Problem 2** Give the Big-O performance of the following code fragment:
+**Problem 2** Give the Big-O performance of the following code fragment:
 
 ```
     for i in range(n):    # (1)  n * (step 1(2))
@@ -47,7 +47,7 @@ The time complexity of the code above becomes
   n \cdot O(n) = O(n)
 \end{equation}
 
-** Problem 3** Give the Big-O performance of the following code fragment:
+**Problem 3** Give the Big-O performance of the following code fragment:
 
 ```
     i = n            # (1)  O(1)
@@ -61,7 +61,7 @@ the i reach 0 in $log_2(n)$ divisions.  Thus the time complexity
 of the code above in big-O notation becomes
 
 \begin{equation}
-   O(1) + log_2(n) \cdot (O(1)    \label{eq:p2_eq1}
+   O(1) + log_2(n) \cdot (O(1) + O(1))    \label{eq:p2_eq1}
 \end{equation}
 
 Because $log_2(n)$ grows with $n$ while the $O(1)$ terms do not, 
@@ -72,7 +72,7 @@ Forumula~\ref{eq:p2_eq1} becomes
   O(log_2(n))
 \end{equation}
 
-** Problem 4** Give the Big-O performance of the follwoing code fragment:
+**Problem 4** Give the Big-O performance of the follwoing code fragment:
 
 ```
     for i in range(n):         # (1)  n * (steps (2) through (4))
