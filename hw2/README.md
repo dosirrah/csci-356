@@ -27,7 +27,7 @@ your directory structure should look like.
     hw2_harrison_david/
     $ cd hw2_harrison_david
     $ ls -F
-    p1.txt  p2.txt  p3.txt  p4.txt  p5.txt  p6/  p7.py  p8.py
+    p1.txt  p2.txt  p3.txt  p4.txt  p5/  p6.py p7.py
     $ cd p6
     $ ls
     bag.py  test_bag.py
