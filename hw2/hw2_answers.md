@@ -1,6 +1,7 @@
 ---
 header-includes:
   - "\\usepackage{amsmath}"
+  - "\\usepackage{graphicx}"
 ---
 
 # Homework 2 solutions
@@ -119,11 +120,19 @@ The additional tests just test a couple edge cases.
 index operator is O(1).  The program must plot the run time of the
 list index operator as a function of n using matplotlib.
 
-# I'll write something to do this.
-
 **Answer 6**
 
-See p7.py
+See p6.py
+
+Possible plot:
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{hw2_p6_list_index.png}
+\end{center}
+
+In this plot, there doesn't appear to be any correlation between $n$ and 
+the time to execute an index operation.   This would be the case
+if the operation takes $O(1)$ time.
 
 
 **Problem 7**: (2 points) Write a program that compares the performance of the
@@ -136,4 +145,14 @@ operator, be sure to delete items at random locations from the list.
 
 **Answer 7**
 
-See p8.py
+See p7.py
+
+\begin{center}
+\includegraphics[width=0.7\textwidth]{hw2_p7_del.png}
+\end{center}
+
+Red denotes average execution time per delete from a dict containing
+$n$ items.  Blue denotes the same thing but for lists.
+
+From this it looks like the time complexity of deletion from a dict is
+O(1), but deletion from a list is O(n).
