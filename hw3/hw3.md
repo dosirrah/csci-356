@@ -52,9 +52,11 @@ windows, you may use zip, in which case the file submitted would be
 Python*.  Put the answer in a text file named `hw3_last_first/p1.txt`.
 
 **Problem 2**: (2 points)
-(a) Create a LinkedList class.  It must pass the hw3/p2/test_linked_list.py.
-  The class MUST not use any Python built-in or standard library
-  collection class, i.e., do not wrap a list or deque.
+
+(a) Create a `LinkedList` class.  It must pass the
+  `hw3/p2/test_linked_list.py`.  The class MUST not use any Python
+  built-in or standard library collection class, i.e., do not wrap a
+  list or deque.
 
 (b) Copy the Stack implementation found in the
   repository
@@ -62,20 +64,20 @@ Python*.  Put the answer in a text file named `hw3_last_first/p1.txt`.
     https://git.cs.olemiss.edu/harrison/csci-356
 
   in `lecture13and14/stack.py` into your homework directory
-  `hw3_last_first/p2`, rename the class LinkedListStack and modify it
-  so that it is implemented using your LinkedLikst. It must pass the
-  unit tests in the repository in the directory
-  `hw3/test_linked_stack.py`.  It MUST use your LinkedList.  the new
-  Stack class MUST NOT use any Python built-in or standard library
-  collection class, i.e., the LinkedListStack class MUST not wrap
-  a list or deque.
+  `hw3_last_first/p2`, rename the class `Stack` to `LinkedListStack`,
+  and modify it so that it is implemented using your `LinkedList`. It
+  must pass the unit tests in the repository in the directory
+  `hw3/test_linked_stack.py`.  It MUST use your `LinkedList`.  the new
+  `LinkedListStack` class MUST NOT use any Python built-in or standard
+  library collection class, i.e., the LinkedListStack class MUST not
+  wrap a `list` or `deque`.
 
 
-**Problems 3** (1 point each) is Problem 3 in Discussion Questions in 4.26.
+**Problem 3** (1 point each) is Problem 3 in Discussion Questions in 4.26.
 of *Problem Solving with Algorithms and Data Structures using Python*.
 
 
-**Problem 4**: (2 points) Use the Queue found in the source code
+**Problem 4**: (2 points) Use the `Queue` found in the source code
 repository in `hw3/p4/queue.py`, which is based on the code in the
 book in Listing 1 of Section 4.12
 
@@ -83,7 +85,7 @@ book in Listing 1 of Section 4.12
 `main` function enqueues $n$ random integers into $m$ Queue objects according
 to the following pseudocode:
 
-    create m empty Queue objects and put them in a list named queues.
+    create m empty `Queue` objects and put them in a list named queues.
     for n in some range:
         start timer
         for x in queues:
@@ -113,19 +115,19 @@ x-axis accordingly.
 and put your analysis in a file named `hw3_last_first/p4/d.txt`.
 
 
-**Problems 5** (1 point) is Problem 5 in Discussion
+**Problem 5** (1 point) is Problem 5 in Discussion
 Questions in 4.26.  of *Problem Solving with Algorithms and Data
 Structures using Python*.
 
 
 **Problem 6**: (2 points) 
 
-Repeat problem 4, but implement a Queue using a Python dequeue.
+Repeat problem 4, but implement a `Queue` using a Python `dequeue`.
 Generate the plots and analyze the `enqueue` and `dequeue` methods
 using big-O notation in the same manner.   In the plots for (a) and (c)
 include the plot for the same scenario but using the list implementation
-of the Queue.  This way we can visually compare the performance of the
-list and deque implementations.
+of the `Queue`.  This way we can visually compare the performance of the
+`list` and `deque` implementations.
 
 
 **Problem 7** (1 point) is Problem 11 in Programming Exercises in 4.26.
