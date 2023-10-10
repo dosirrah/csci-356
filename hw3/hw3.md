@@ -85,6 +85,7 @@ book in Listing 1 of Section 4.12
 `main` function enqueues $n$ random integers into $m$ Queue objects according
 to the following pseudocode:
 
+```
     create m empty `Queue` objects and put them in a list named queues.
     for n in some range:
         start timer
@@ -93,9 +94,10 @@ to the following pseudocode:
         stop timer
         divide the elapsed time by m to get an average
         append the average time for an execution of enqueue to a list of times.
+```
 
 Using `matplotlib` have your code plot the average execution time for
-a call to `enqueue()` as a function of $n$.  Vary $n$ at last to
+a call to `enqueue()` as a function of $n$.  Vary $n$ at least to
 10,000.  You may skip $n$ by increments of 10, but if you do then
 adjust the x-axis accordingly.
 
