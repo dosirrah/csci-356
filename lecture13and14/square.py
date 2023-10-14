@@ -39,4 +39,5 @@ def draw_square(x1: int, y1: int, x2:int, y2:int):
     if not success:
         raise Exception("Some exception")
 
+
 draw_square(10, 20, 30, 40)
