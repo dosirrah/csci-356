@@ -1,7 +1,7 @@
 """This module provides a Python list implementation for purposes of
 illustration."""
 
-
+from __future__ import annotations  # allows __eq__, __add__, etc. to take Fraction as a type hint.
 import numpy
 
 
@@ -18,8 +18,10 @@ class CircularBuffer:
         self._cap = 1
         self._arr = numpy.empty(self._cap, dtype=object)
 
-    def _grow(self):
-        new_cap = self._cap * 2
+    def _grow(self, new_cap=None):
+        if new_cap is None:
+            new_cap = self._cap * 2
+        assert new_cap > self._cap
         newarr = numpy.empty(new_cap, dtype=object)
 
         # copy takes O(n).
@@ -71,6 +73,11 @@ class CircularBuffer:
 
     def capacity(self) -> int:
         return len(self._arr)
+
+    def reserve(self, capacity: int):
+        if capacity < self._n:
+            raise ValueError("Cannot reserve less than the number of items in the buffer.")
+        self._grow(capacity)
 
 
 if __name__ == "__main__":
