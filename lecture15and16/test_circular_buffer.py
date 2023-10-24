@@ -89,4 +89,70 @@ class TestCircularBuffer(unittest.TestCase):
 
 
     def test_many_push_backs(self):
-        pass
+        cbuf = CircularBuffer()
+        for i in range(100):
+            cbuf.push_back(i)  # grows the buffer a bit.
+
+        self.assertEqual(100, len(cbuf))
+        self.assertEqual(99, cbuf.pop_back())
+        self.assertEqual(0, cbuf.pop_front())
+
+    def test_reserve(self):
+        cbuf = CircularBuffer()
+        cbuf.reserve(10)
+        self.assertEqual(10, cbuf.capacity())
+
+        # verify that no capacity changes occur while there is
+        # reserved room.
+        for i in range(9):
+            cbuf.push_back(i)
+            self.assertEqual(10, cbuf.capacity())
+
+        # force it to grow once reserved capacity has been exhausted.
+        cbuf.push_back("foo")
+        self.assertEqual(20, cbuf.capacity())
+
+    def test_getitem(self):
+        cbuf = CircularBuffer()
+        try:
+            _ = cbuf[0]
+            # should never reach here.
+            self.assertFalse(True)
+        except IndexError:
+            pass
+
+        try:
+            _ = cbuf[-1]
+            # should never reach here.
+            self.assertFalse(True)
+        except IndexError:
+            pass
+
+        cbuf.push_back("foo")
+        self.assertEqual("foo", cbuf[0])
+        self.assertEqual("foo", cbuf[-1])
+        try:
+            _ = cbuf[1]
+            # should never each here.
+            self.assertFalse(True)
+        except IndexError:
+            pass
+
+        cbuf.push_back("bar")
+        self.assertEqual("foo", cbuf[0])
+        self.assertEqual("bar", cbuf[1])
+        self.assertEqual("bar", cbuf[-1])
+        self.assertEqual("foo", cbuf[-2])
+
+        try:
+            _ = cbuf[-3]
+            # should never each here.
+            self.assertFalse(True)
+        except IndexError:
+            pass
+
+        x = cbuf.pop_front()
+        self.assertEqual("foo", x)
+        cbuf.push_back("blah")
+        self.assertEqual("bar", cbuf[0])
+        self.assertEqual("blah", cbuf[1])
