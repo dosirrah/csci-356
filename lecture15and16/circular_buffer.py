@@ -12,6 +12,9 @@ class CircularBuffer:
     """
 
     def __init__(self):
+        """
+        create empty circular buffer.
+        """
         self._begin = 0
         self._end = 0
         self._n = 0
@@ -19,6 +22,12 @@ class CircularBuffer:
         self._arr = numpy.empty(self._cap, dtype=object)
 
     def _grow(self, new_cap=None):
+        """
+        Increase capacity of the circular buffer.
+        :param new_cap: capacity of the circular buffer after _grow() or double
+                        the current capacity if new_cap not passed.
+        :return: None
+        """
         if new_cap is None:
             new_cap = self._cap * 2
         assert new_cap > self._cap
@@ -35,7 +44,13 @@ class CircularBuffer:
         self._cap = new_cap
 
     def push_back(self, x: object):
-        if self._n == self._cap:
+        """
+        Append an object to the back of the circular buffer.
+        Takes amortized O(1).
+        :param x: object to append
+        :return: None
+        """
+        if self._n == self._cap-1:
             self._grow()
 
         self._arr[self._end] = x
@@ -43,7 +58,13 @@ class CircularBuffer:
         self._n += 1
 
     def push_front(self, x: object):
-        if self._n == self._cap:
+        """
+        Prepend an object to the circular buffer.
+        Takes amortized O(1).
+        :param x: object to prepend
+        :return: None
+        """
+        if self._n == self._cap-1:
             self._grow()
 
         self._begin = (self._begin -1) % self._cap
@@ -51,6 +72,11 @@ class CircularBuffer:
         self._n += 1
 
     def pop_front(self) -> object:
+        """
+        Remove and return object at front of the circular buffer.
+        Takes O(1).
+        :return: object previously at front of the circular buffer.
+        """
         if self._n == 0:
             raise IndexError
         x = self._arr[self._begin]
@@ -60,6 +86,11 @@ class CircularBuffer:
         return x
 
     def pop_back(self) -> object:
+        """
+        Remove and return object at back of the circular buffer.
+        Takes O(1).
+        :return: object previously at back of the circular buffer.
+        """
         if self._n == 0:
             raise IndexError
         self._end = (self._end - 1) % self._cap
@@ -69,15 +100,54 @@ class CircularBuffer:
         return x
 
     def __len__(self) -> int:
+        """
+        The number of objects in the circular buffer differs
+        from the capacity.  Capacity refers to the amount
+        of memory allocated to store objects.
+        :return: number of objects in the circular buffer.
+        """
         return self._n
 
     def capacity(self) -> int:
+        """
+        :return: how many objects for which memory has been alllocated.
+        """
         return len(self._arr)
 
     def reserve(self, capacity: int):
+        """
+        Reserves (pre-allocates) room for objects to avoid the overhead
+        of growing multiple times when you know how many objects you are
+        likely to push to the front or back.
+
+        If you plan to reserve, you may want to temporarily disable garbage
+        collection while pushing to either end to avoid performing
+        unnecessary mark-and-sweeps.
+
+        :param capacity: new capacity of the circular buffer.
+        :return: circular buffer with new capacity.
+        """
         if capacity < self._n:
             raise ValueError("Cannot reserve less than the number of items in the buffer.")
         self._grow(capacity)
+
+    def __getitem__(self, index: int) -> object:
+        """
+        Return the ith object in the circular buffer.  This does not
+        remove the object.  This takes O(1) time.
+        :param index: index of object to return.
+        :return: object at given index.
+        """
+        if index >= self._n or index < -self._n:
+            raise IndexError
+        if index < 0:
+            index = (self._end + index) % self._cap
+        else:
+            index = (self._begin + index) % self._cap
+        return self._arr[index]
+
+    # didn't implement __setitem__ but the implementation is similar
+    # and is O(1).
 
 
 if __name__ == "__main__":
@@ -92,13 +162,15 @@ if __name__ == "__main__":
         caps = []
         caps.append(x.capacity())
         for i in range(n):
-            x.append(randint(0, 100000))
+            x.push_back(randint(0, 100000))
             caps.append(x.capacity())
         return caps
 
     def main():
         global N
 
+        # For illustrative purposes, plot capacity as a function of the
+        # number of objects N in the circular buffer.
         cap_list = sweep_n(N)
         plt.scatter(range(0, N+1), cap_list, color="blue")
 
@@ -126,7 +198,6 @@ if __name__ == "__main__":
         plt.ylabel('k')
 
         plt.show()
-
 
 
     main()
