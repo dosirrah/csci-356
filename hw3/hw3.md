@@ -132,6 +132,6 @@ of the `Queue`.  This way we can visually compare the performance of the
 `list` and `deque` implementations.
 
 
-**Problem 7** (1 point) is Problem 11 in Programming Exercises in 4.26.
+**Problem 7** (1 point) is Problem 11 in Programming Exercises in 4.27.
 of *Problem Solving with Algorithms and Data Structures using Python*.
 It must pass the unit tests for `p7/test_html_balance.py`.
