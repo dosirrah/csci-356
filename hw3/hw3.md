@@ -64,13 +64,14 @@ Python*.  Put the answer in a text file named `hw3_last_first/p1.txt`.
     https://git.cs.olemiss.edu/harrison/csci-356
 
   in `lecture13and14/stack.py` into your homework directory
-  `hw3_last_first/p2`, rename the class `Stack` to `LinkedListStack`,
-  and modify it so that it is implemented using your `LinkedList`. It
-  must pass the unit tests in the repository in the directory
-  `hw3/test_linked_stack.py`.  It MUST use your `LinkedList`.  the new
-  `LinkedListStack` class MUST NOT use any Python built-in or standard
-  library collection class, i.e., the LinkedListStack class MUST not
-  wrap a `list` or `deque`.
+  `hw3_last_first/p2`, rename the file to `linked_list_stack.py`.  In
+  the file `linked_list_stack.py` rename the class `Stack` to
+  `LinkedListStack`, and modify it so that it is implemented using
+  your `LinkedList`. It must pass the unit tests in the repository in
+  the directory `hw3/p2/test_linked_list_stack.py`.  It MUST use your
+  `LinkedList`.  the new `LinkedListStack` class MUST NOT use any
+  Python built-in or standard library collection class, i.e., the
+  LinkedListStack class MUST not wrap a `list` or `deque`.
 
 
 **Problem 3** (1 point each) is Problem 3 in Discussion Questions in 4.26.
