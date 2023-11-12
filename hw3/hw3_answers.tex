@@ -1,0 +1,287 @@
+\documentclass{article} % Document class definition
+
+% Preamble starts here
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{needspace}
+
+
+\title{Homework 4 Answers}
+% \date{Due date: 10/26/2023 at 11:59 PM}
+\author{}
+
+\begin{document}
+\maketitle
+
+% Redefine the label for the top-level items
+\renewcommand{\labelenumi}{Problem \arabic{enumi}}
+
+% Redefine the label for the second-level items
+\renewcommand{\labelenumii}{\alph{enumii})}
+
+
+\begin{enumerate}
+
+\item (1 point each) is Problem 1 in Discussion Questions in 4.26.  of
+  *Problem Solving with Algorithms and Data Structures using Python*.
+  Put the answer in a text file named \verb|hw3_last_first/p1.txt|.
+  Convert the following values to binary using “divide by 2.” Show the
+  stack of remainders.
+
+
+  \begin{enumerate}
+  \item
+      % needspace ensurese there is at least 5 lines worth of space after
+      % the 17
+      \needspace{5\baselineskip} % Enough room for first few lines of answer.
+      17
+
+      \begin{minipage}{4.5in}
+        
+        \vspace{0.1in}
+        ANSWER
+        
+        \begin{eqnarray*}
+          17 / 2 &=& 8 r 1 \text{ push 1, stack: [1]} \\
+          8 / 2  &=& 4 r 0 \text{ push 0, stack: [1, 0]} \\
+          4 / 2  &=& 4 r 0 \text{ push 0, stack: [1, 0, 0]} \\
+          2 / 2  &=& 2 r 0 \text{ push 0, stack: [1, 0, 0, 0]} \\
+          1 / 2  &=& 0 r 1 \text{ push 1, stack: [1, 0, 0, 0, 1]} 
+        \end{eqnarray*}
+
+        Now pop the stack until empty to obtain the binary number: 10001.
+
+        It is not required that the answer be presented exact as above.
+
+        Any notion of the stack [1, 0, 0, 0, 1] is adequate.
+        \vspace{.1in}
+
+      \end{minipage}
+
+    
+    \item
+        \needspace{5\baselineskip} % Enough room for first few lines of answer.
+        45
+      
+        \begin{minipage}{4.5in}
+          \vspace{.1in}
+
+          ANSWER
+
+          \begin{eqnarray*}
+            45 / 2 &=& 22 r 1 \text{ push 1, stack: [1]} \\
+            22 / 2  &=& 11 r 0 \text{ push 0, stack: [1, 0]} \\
+            11 / 2  &=& 5 r 1 \text{ push 1, stack: [1, 0, 1]} \\
+            5 / 2  &=& 2 r 1 \text{ push 1, stack: [1, 0, 1, 1]} \\
+            2 / 2  &=& 1 r 0 \text{ push 0, stack: [1, 0, 1, 1, 0]} \\
+            1 / 2  &=& 1 r 1 \text{ push 1, stack: [1, 0, 1, 1, 0, 1]} 
+          \end{eqnarray*}
+
+          Now pop the stack until empty to obtain the binary number: 101101
+
+          \vspace{.1in}
+        \end{minipage}
+
+    \item
+      \needspace{5\baselineskip} % Enough room for first few lines of answer.
+        96
+      
+        \begin{minipage}{4.5in}
+          \vspace{.3in}
+
+          ANSWER
+          
+          \begin{eqnarray*}
+            96 / 2 &=& 48 r 0 \text{ push 0, stack: [0]} \\
+            48 / 2 &=& 24 r 0 \text{ push 0, stack: [0, 0]} \\
+            24 / 2 &=& 12 r 0 \text{ push 0, stack: [0, 0, 0]} \\
+            12 / 2 &=& 6 r 0  \text{ push 0, stack: [0, 0, 0, 0]} \\
+            6 / 2 &=& 3 r 0   \text{ push 0, stack: [0, 0, 0, 0, 0]} \\
+            3 / 2 &=& 1 r 1   \text{ push 1, stack: [0, 0, 0, 0, 0, 1]} \\
+            1 / 2 &=& 0 r 1   \text{ push 1, stack: [0, 0, 0, 0, 0, 1, 1]}
+          \end{eqnarray*}
+
+          Now pop the stack util empty to obtain the binary number 1100000.
+
+          \vspace{.1in}
+        \end{minipage}
+
+  \end{enumerate}
+
+\item (2 points)
+
+  \begin{enumerate}
+    \needspace{5\baselineskip} % Enough room for first few lines of answer.
+    \item Create a \verb|LinkedList| class.  It must pass the
+      \verb|hw3/p2/test_linked_list.py|.  The class MUST not use any
+      Python built-in or standard library collection class, i.e., do
+      not wrap a list or deque.
+  
+      \begin{minipage}{4.5in}
+        \vspace{.1in}
+        ANSWER
+
+        I included an implementation of \verb|linked_list.py| in the
+        repository.  The answer provided by the student must pass
+        \verb|test_linked_list.py|.
+        \vspace{.1in}
+      \end{minipage}
+
+  \item   Copy the Stack implementation found in the
+  repository
+
+  \begin{verbatim}
+    https://git.cs.olemiss.edu/harrison/csci-356
+  \end{verbatim}
+
+  in \verb|lecture13and14/stack.py| into your homework directory
+  \verb|hw3_last_first/p2|, rename the class \verb|LinkedListStack|
+  and modify it so that it is implemented using your \verb|LinkedList|. It
+  must pass the unit tests in the repository in the directory
+  \verb|hw3/test_linked_stack.py|.  It MUST use your LinkedList.  the
+  new Stack class MUST NOT use any Python built-in or standard library
+  collection class, i.e., the \verb|LinkedListStack| class MUST not wrap a
+  \verb|list| or \verb|deque|.
+
+      \begin{minipage}{4.5in}
+        \vspace{.1in}
+        ANSWER
+
+        I included an implementation of \verb|linked_list_stack.py| in
+        the repository in \verb|hw3/|.  The answer provided by the
+        student must pass \verb|test_linked_list.py|.
+        \vspace{.1in}
+      \end{minipage}
+
+      
+  \end{enumerate} 
+
+\item (1 point each)
+  Problem 3 in Discussion Questions in 4.26 of *Problem Solving with
+  Algorithms and Data Structures using Python*. 
+
+  Convert the infix expressions to postfix (use full parentheses).
+
+  \begin{enumerate}\label{in2posta}
+  \item
+    \needspace{5\baselineskip}
+    \verb|(A+B)*(C+D)*(E+F)|
+
+    \begin{minipage}{4.5in}
+      \vspace{.1in}
+      ANSWER
+
+      The book suggests the following procedure:
+
+      \begin{quotation}
+        
+        1. Create an empty stack called opstack for keeping
+        operators. Create an empty list for output.
+
+        2. Convert the input infix string to a list by using the string
+        method split.
+
+        3. Scan the token list from left to right.
+
+        4. If the token is an operand, append it to the end of the output list.
+
+        5. If the token is a left parenthesis, push it on the opstack.
+
+        6. If the token is a right parenthesis, pop the opstack until the
+        corresponding left parenthesis is removed. Append each
+        operator to the end of the output list.
+
+        7. If the token is an operator, *, /, +, or -, push it on the
+        opstack. However, first remove any operators already on the
+        opstack that have higher or equal precedence and append them
+        to the output list.
+
+        When the input expression has been completely processed, check
+        the opstack. Any operators still on the stack can be removed
+        and appended to the end of the output list.
+      \end{quotation}
+    \end{minipage}
+
+    \begin{minipage}{4.5in}
+      \vspace{.1in}
+      We would start with \verb|(A+B)*(C+D)*(E+F)|.
+
+        \begin{verbatim}
+          (A+B)*(C+D)*(E+F)  opstack = [], output=""
+          A+B)*(C+D)*(E+F)   opstack = ['('], output=""
+          +B)*(C+D)*(E+F)    opstack = ['('], output="A"
+          B)*(C+D)*(E+F)     opstack = ['(', '+'], output="A"
+          )*(C+D)*(E+F)      opstack = ['(', '+'], output="AB"
+          *(C+D)*(E+F)       opstack = [], output="AB+"
+          (C+D)*(E+F)        opstack = ['*'], output="AB+"
+          C+D)*(E+F)         opstack = ['*', '('], output="AB+"
+          +D)*(E+F)          opstack = ['*', '('], output="AB+C"
+          
+          D)*(E+F)           opstack = ['*', '(', '+'], output="AB+C"
+          )*(E+F)            opstack = ['*', '(', '+'], output="AB+CD"
+          *(E+F)             opstack = ['*'], output="AB+CD+"
+          (E+F)              opstack = ['*'], output="AB+CD+*"
+          E+F)               opstack = ['*', '('], output="AB+CD+*"
+          +F)                opstack = ['*', '('], output="AB+CD+*E"
+          F)                 opstack = ['*', '(', '+'], output="AB+CD+*E"
+          )                  opstack = ['*', '(', '+'], output="AB+CD+*EF"
+                             opstack = [], output="AB+CD+*EF+*"
+        \end{verbatim}
+         
+        So the postfix generated by the algorithm presented in the book is
+        given by
+        
+\begin{verbatim}
+  AB+CD+*EF+*
+\end{verbatim}
+
+      \vspace{.1in}
+    \end{minipage}
+
+  \item
+    \needspace{5\baselineskip} % Enough room for first few lines of answer.
+    \verb|A+((B+C)*(D+E))|
+    
+    \begin{minipage}{4.5in}
+      \vspace{.1in}
+      ANSWER
+
+      Using the analogous procedure given for the conversion for~\ref{in2post},
+      we generate the following postfix:
+      
+          \verb|ABC+DE+*+|
+
+      \vspace{.1in}
+    \end{minipage}
+
+      
+  \item
+    \needspace{5\baselineskip} 
+    \verb|A*B*C*D+E+F|
+
+    \begin{minipage}{4.5in}
+      \vspace{.1in}
+      ANSWER
+
+      The procedure in the book would provide the following result:
+      
+          \verb|AB*C*D*E+F+|
+
+      However, the following is an equivalent postfix notation for the given
+      mathematical expression:
+
+          \verb|ABCD***EF++|
+
+      \vspace{.1in}
+    \end{minipage}
+
+  \end{enumerate}
+
+%     **Problem 4**: (2 points) Use the `Queue` found in the source code
+% repository in `hw3/p4/queue.py`, which is based on the code in the
+% book in Listing 1 of Section 4.12
+
+  
+\end{enumerate}
+
+\end{document}
