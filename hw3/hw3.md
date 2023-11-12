@@ -47,7 +47,7 @@ Submit `hw3_harrisond_david.tgz` to blackboard.  If you are on
 windows, you may use zip, in which case the file submitted would be
 `hw3_harrison_david.zip`.
 
-**Problems 1** (1 point each) is Problem 1 in Discussion Questions in
+**Problems 1** (1 point each) Problem 1 in Discussion Questions in
 4.26.  of *Problem Solving with Algorithms and Data Structures using
 Python*.  Put the answer in a text file named `hw3_last_first/p1.txt`.
 
