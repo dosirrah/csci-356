@@ -114,3 +114,23 @@ class LinkedList:
 
         del node
         return item
+
+    def peek_back(self):
+        """
+        :return: the last item in the linked list without modifying the linked list.
+        """
+        if self._n == 0:
+            raise IndexError("Cannot peek into an empty linked list.")
+
+        # noinspection PyProtectedMember
+        return self._end._item
+
+    def peek_front(self):
+        """
+        :return the first tiem in the linked list without modiyfing the linkedlist.
+        """
+        if self._n == 0:
+            raise IndexError("Cannot peek into an empty linked list.")
+
+        # noinspection PyProtectedMember
+        return self._front._item
