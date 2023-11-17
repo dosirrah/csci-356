@@ -51,13 +51,19 @@ M = 100
 BIGINT = 100
 
 
-def perf_test(sort):
+def perf_test(sort, n = N) -> list:
+    """
+    :param sort: a function f(x) that sorts a passed list x.
+    :param n: maximum value for n used in the performance test.
+    :return: a list of average times where the ith time is
+    the average time to sort a list of length i.
+    """
 
     # M=fx
     run_times = []
     alists = [list() for _ in range(M)]
 
-    for i in range(N):
+    for i in range(n):
         for a in alists:
             a.append(random.randint(0, BIGINT))
             random.shuffle(a)
@@ -77,6 +83,7 @@ def perf_test(sort):
            sys.stdout.flush()
 
     return run_times
+
 
 if __name__ == "__main__":
 
