@@ -2,7 +2,7 @@
 An SSLQueue is a queue based on a singly-linked list.
 """
 
-from singly_linked_list import SinglyLinkedList
+from lecture15to17.singly_linked_list import SinglyLinkedList
 
 
 class SLLQueue:
