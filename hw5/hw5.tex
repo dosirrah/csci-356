@@ -166,9 +166,7 @@ for all $n \geq n_0$.
 \subsection{Example 1}
 
 When answering with regard to time complexity be sure to specify
-which group of lines are repeated and how many times.  For example,
-function \verb|f(x)| below is called with a list containing $n$ integers.
-
+which group of lines are repeated and how many times. 
 You are given the code snippet:
 
 \begin{verbatim}
@@ -613,8 +611,8 @@ assumptions as in problem 3.  dicts
 \begin{verbatim}
   d = {}
   for i in range(n):
-    j = randint(0, len(x)-1)
-    x[i] = j
+    j = randint(0, len(d)-1)
+    d[i] = j
 \end{verbatim}
 
 \item In this problem the first line contains a list comprehension that
